@@ -1,0 +1,189 @@
+.slider-control {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.cove-slider-control {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1.0rem;
+    /*width: 72%;*/
+}
+
+.rgbw-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0.25rem 1.5rem;
+}
+
+.rgbw-slider-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 5.0rem;
+}
+
+.slider-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.fade-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 10.0rem;
+}
+
+.master-control {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.0rem;
+}
+
+.master-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1.0rem 1.0rem;
+}
+
+.master-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 1.0rem;
+}
+
+.presetsAndFadeRate {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 1.0rem;
+    /*width: 25%;*/
+}
+
+.edit-button {
+    background-color: black;
+    border: 2px solid #666600;
+    border-radius: 0.75rem;
+    color: #666600;
+    font-size: 1.25rem;
+    height: 2.0rem;
+    margin: 0;
+    padding: 0.25rem;
+    width: 10.0rem;
+}
+
+.edit-button:hover {
+    border: 2px solid #aa6600;
+    color: #aa6600;
+}
+
+.cove-button {
+    background-color: black;
+    border: 2px solid #aa5500;
+    border-radius: 0.75rem;
+    color: #aa5500;
+    font-size: 1.25rem;
+    height: 2.5rem;
+    margin: 0;
+    padding: 0.25rem;
+    width: 7.0rem;
+}
+
+.cove-button:hover {
+    border: 2px solid #aa8800;
+    color: #aa8800;
+}
+
+.red-button {
+    border: 2px solid #bb0000;
+    color: #bb0000;
+}
+
+.red-button:hover {
+    border: 2px solid #ff0000;
+    color: #ff0000;
+}
+
+.grn-button {
+    border: 2px solid #00bb00;
+    color: #00bb00;
+}
+
+.grn-button:hover {
+    border: 2px solid #00ff00;
+    color: #00ff00;
+}
+
+.blu-button {
+    border: 2px solid #0077bb;
+    color: #0077bb;
+}
+
+.blu-button:hover {
+    border: 2px solid #0077ff;
+    color: #0077ff;
+}
+
+.wht-button {
+    border: 2px solid #888888;
+    color: #888888;
+}
+
+.wht-button:hover {
+    border: 2px solid #bbbbbb;
+    color: #bbbbbb;
+}
+
+.cove-label {
+    color: #aa5500;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.cove-label-medium {
+    color: #aa5500;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.cove-label-small {
+    color: #aa5500;
+    font-size: 1.0rem;
+    text-align: center;
+}
+
+.slider-label {
+    color: #aa5500;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.slider-red {
+    color: #bb0000;
+}
+
+.slider-grn {
+    color: #00bb00;
+}
+
+.slider-blu {
+    color: #0077bb;
+}
+
+.slider-wht {
+    color: #888888;
+}

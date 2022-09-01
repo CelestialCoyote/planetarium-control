@@ -1,0 +1,52 @@
+.fadeRateSelect {
+    border-top: 4px solid #aa5500;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.0rem;
+}
+
+.rateSelection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.rate-select-value{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2.0rem 0rem;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+    border: 2px solid #aa5500;
+    border-radius: 0.75rem;
+    color: #aa5500;
+    font-size: 1.25rem;
+    height: 2.5rem;
+    margin: 0;
+    padding: 0.25rem;
+    text-align: center;
+    width: 7.0rem;
+}
+
+input[type="radio"]:hover + label {
+    border: 2px solid #aa8800;
+    color: #aa8800;
+}
+
+input[type="radio"]:checked + label {
+    color: #887700;
+    border: 2px solid #887700;
+}
