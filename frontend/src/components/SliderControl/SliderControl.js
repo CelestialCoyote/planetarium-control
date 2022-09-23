@@ -5,10 +5,13 @@ import PresetButtons from '../PresetButtons/PresetButtons';
 import EditPresets from '../EditPresets/EditPresets';
 import FadeRateSelect from '../FadeRateSelect/FadeRateSelect';
 import backend from '../../userConfig/backendIP';
+import { baseAPI } from '../../userConfig/baseAPI';
 import './SliderControl.css';
 
 
 const SliderControl = () => {
+
+    const baseURL = `${backend.IP}/hercules/`;
 
     const [presets, setPresets] = useState([]);
     const [editPresets, setEditPresets] = useState(false);
@@ -18,18 +21,6 @@ const SliderControl = () => {
     const [whtValue, setWhtValue] = useState(0);
     const [masterValue, setMasterValue] = useState(255);
     const [duration, setDuration] = useState(3);
-
-    const handleChange = (colorChange) => {
-        try {
-            axios
-                .post(`${backend.IP}/api/dmx/colorChangeButton`, colorChange)
-                .then((res) => {
-                    console.log(res.data);
-                });
-        } catch (error) {
-            console.log('Update color channel failed.', error);
-        }
-    };
 
     const handleSliderChange = async () => {
         let data = {
@@ -41,14 +32,34 @@ const SliderControl = () => {
         };
 
         try {
+            // Optional: Can base url in global config to avoid having to type it
+            await baseAPI.post('colorChangeSlider', data)
+                .then((res) => {
+                    console.log(res.data);
+                });
+
+            //await axios
+            //    .post(`${baseURL}colorChangeSlider`, data)
+            //    .then((res) => {
+            //        console.log(res.data);
+            //    });
+        } catch (error) {
+            console.log('Update color channel failed.', error);
+        };
+    };
+
+    const handleButtonChange = async (colorChange) => {
+        try {
+            // Same code as above, can probably be collapsed into same function
+            // Possibly use state values as default function values?
             await axios
-                .post(`${backend.IP}/api/dmx/colorChangeSlider`, data)
+                .post(`${baseURL}/colorChangeButton`, colorChange)
                 .then((res) => {
                     console.log(res.data);
                 });
         } catch (error) {
             console.log('Update color channel failed.', error);
-        };
+        }
     };
 
     // Get Preset information from backend.
@@ -56,7 +67,7 @@ const SliderControl = () => {
 
         try {
             axios
-                .get(`${backend.IP}/api/dmx/getPresets`)
+                .get(`${backend.IP}/hercules/presets`)
                 .then((res) => {
                     setPresets(res.data);
                 });
@@ -90,7 +101,7 @@ const SliderControl = () => {
                                         className="cove-button red-button"
                                         onClick={() => {
                                             setRedValue(255);
-                                            handleChange(
+                                            handleButtonChange(
                                                 [
                                                     { "red": 255 },
                                                     { "grn": -1 },
@@ -108,7 +119,7 @@ const SliderControl = () => {
                                         className="cove-button red-button"
                                         onClick={() => {
                                             setRedValue(0);
-                                            handleChange(
+                                            handleButtonChange(
                                                 [
                                                     { "red": 0 },
                                                     { "grn": -1 },
@@ -171,7 +182,7 @@ const SliderControl = () => {
                                         className="cove-button grn-button"
                                         onClick={() => {
                                             setGrnValue(255);
-                                            handleChange(
+                                            handleButtonChange(
                                                 [
                                                     { "red": -1 },
                                                     { "grn": 255 },
@@ -189,7 +200,7 @@ const SliderControl = () => {
                                         className="cove-button grn-button"
                                         onClick={() => {
                                             setGrnValue(0);
-                                            handleChange(
+                                            handleButtonChange(
                                                 [
                                                     { "red": -1 },
                                                     { "grn": 0 },
@@ -252,7 +263,7 @@ const SliderControl = () => {
                                         className="cove-button blu-button"
                                         onClick={() => {
                                             setBluValue(255);
-                                            handleChange(
+                                            handleButtonChange(
                                                 [
                                                     { "red": -1 },
                                                     { "grn": -1 },
@@ -270,7 +281,7 @@ const SliderControl = () => {
                                         className="cove-button blu-button"
                                         onClick={() => {
                                             setBluValue(0);
-                                            handleChange(
+                                            handleButtonChange(
                                                 [
                                                     { "red": -1 },
                                                     { "grn": -1 },
@@ -333,7 +344,7 @@ const SliderControl = () => {
                                         className="cove-button wht-button"
                                         onClick={() => {
                                             setWhtValue(255);
-                                            handleChange(
+                                            handleButtonChange(
                                                 [
                                                     { "red": -1 },
                                                     { "grn": -1 },
@@ -351,7 +362,7 @@ const SliderControl = () => {
                                         className="cove-button wht-button"
                                         onClick={() => {
                                             setWhtValue(0);
-                                            handleChange(
+                                            handleButtonChange(
                                                 [
                                                     { "red": -1 },
                                                     { "grn": -1 },
@@ -468,7 +479,7 @@ const SliderControl = () => {
                                     className="cove-button"
                                     onClick={() => {
                                         setMasterValue(255);
-                                        handleChange(
+                                        handleButtonChange(
                                             [
                                                 { "red": redValue },
                                                 { "grn": grnValue },
@@ -486,7 +497,7 @@ const SliderControl = () => {
                                     className="cove-button"
                                     onClick={() => {
                                         setMasterValue(0);
-                                        handleChange(
+                                        handleButtonChange(
                                             [
                                                 { "red": redValue },
                                                 { "grn": grnValue },
